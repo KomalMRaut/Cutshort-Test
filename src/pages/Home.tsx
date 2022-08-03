@@ -2,7 +2,6 @@ import React from "react";
 import { Page1 } from "../components/formPages/Page1";
 import { Page2 } from "../components/formPages/Page2";
 import { Page3 } from "../components/formPages/Page3";
-import { Page4 } from "../components/formPages/Page4";
 import { Stepper } from "../components/Stepper";
 import Logo from "../assets/Logo.png";
 
@@ -36,7 +35,7 @@ const Home: React.FC = () => {
       heading: "Congratulations, Eren!",
       subHeading:
         "you have completed onboarding, you can start using the Eden!",
-      form: <Page4 />,
+      form: <></>,
       btnTxt: "Launch Eden",
     },
   ];
@@ -47,19 +46,27 @@ const Home: React.FC = () => {
         <h1>Eden</h1>
       </div>
       <Stepper activeStep={activeStep} totalSteps={4} />
+      {activeStep === 3 && <div className="finish">✓</div>}
       <div className="home__form">
-        <h1>{formData[activeStep].heading}</h1>
-        <p>{formData[activeStep].subHeading}</p>
-        {formData[activeStep].form}
-        <button
-          className="home__btn"
-          onClick={() => {
-            setActiveStep((prevStep) => prevStep + 1);
-          }}
-          disabled={activeStep === 3}
-        >
-          {formData[activeStep].btnTxt}
-        </button>
+        <div className="home__form__heading">
+          <h1>{formData[activeStep].heading}</h1>
+          <p>{formData[activeStep].subHeading}</p>
+        </div>
+        <div className="home__form__input">
+          {formData[activeStep].form}
+          <button
+            className="home__btn"
+            onClick={() => {
+              if (activeStep === 3) {
+                setActiveStep(0);
+              } else {
+                setActiveStep((prevStep) => prevStep + 1);
+              }
+            }}
+          >
+            {formData[activeStep].btnTxt}
+          </button>
+        </div>
       </div>
     </div>
   );
