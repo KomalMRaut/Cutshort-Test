@@ -1,0 +1,27 @@
+.stepper {
+  display: flex;
+  align-items: center;
+  .stepper__step {
+    display: flex;
+    align-items: center;
+    span {
+      font-size: 0.75rem;
+      font-weight: bold;
+      border: 1px solid #ccc;
+      color: #434343;
+      border-radius: 50%;
+      width: 1.5rem;
+      line-height: 1.5rem;
+      height: 1.5rem;
+      text-align: center;
+    }
+    hr {
+      width: 5rem;
+    }
+  }
+  .stepper__step--active {
+    span {
+      background-color: plum;
+    }
+  }
+}
