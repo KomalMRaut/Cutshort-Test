@@ -13,7 +13,9 @@ export const Stepper: React.FC<stepperType> = ({ activeStep, totalSteps }) => {
             key={i}
           >
             <span>{i + 1}</span>
-            {totalSteps !== i + 1 && <hr />}
+            {totalSteps !== i + 1 && (
+              <hr className={i === activeStep ? "last-hr" : ""} />
+            )}
           </div>
         );
       })}

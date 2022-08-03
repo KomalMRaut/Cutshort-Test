@@ -1,27 +1,44 @@
 .stepper {
   display: flex;
   align-items: center;
+  margin: 5rem 0;
   .stepper__step {
     display: flex;
     align-items: center;
     span {
-      font-size: 0.75rem;
-      font-weight: bold;
+      font-size: 1rem;
       border: 1px solid #ccc;
-      color: #434343;
+      color: #a6acba;
       border-radius: 50%;
-      width: 1.5rem;
-      line-height: 1.5rem;
-      height: 1.5rem;
+      width: 3rem;
+      line-height: 3rem;
+      height: 3rem;
       text-align: center;
     }
     hr {
       width: 5rem;
+      border: none;
+      height: 2px;
+      background-color: #ccc;
     }
   }
   .stepper__step--active {
     span {
-      background-color: plum;
+      background-color: $primary-color;
+      border: 1px solid $primary-color;
+      color: #fff;
+    }
+    hr {
+      background: $primary-color;
+    }
+    .last-hr {
+      background: linear-gradient(
+        to right,
+        $primary-color 0%,
+        $primary-color 50%,
+        #ccc 50%,
+        #ccc 100%
+      );
     }
   }
 }
